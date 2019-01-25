@@ -1,0 +1,16 @@
+QUESTION 12
+
+curl 'http://rest.ensembl.org/variation/mus_musculus/rs4224828' -H 'Content-type:application/json'
+
+{"mappings":[{"end":136443949,"location":"4:136443949-136443949","seq_region_name":"4","strand":1,"assembly_name":"GRCm38","start":136443949,"allele_string":"T/C","coord_system":"chromosome"}],"name":"rs4224828","evidence":["Multiple_observations","Frequency"],"minor_allele":null,"var_class":"SNP","source":"Variants (including SNPs and indels) imported from dbSNP","synonyms":[],"most_severe_consequence":"3_prime_UTR_variant","ambiguity":"Y","MAF":null,"ancestral_allele":null}
+
+The mapping location is: 4:136443949-136443949
+
+
+QUESTION 13
+
+curl 'http://rest.ensembl.org/sequence/region/danio_rerio/20:33294428:33294528:1' -H 'Content-type:text/x-fasta'
+>chromosome:GRCz11:20:33294428:33294528:1
+TAGAATAATACTTCACAGCCCGAAACACAGAGGCGCAGAACAGTCTTCAGTCGCCGCGGT
+AGATGTGCGACTCCAAACGGGAGGCACAGTGACTGCGATAA
+

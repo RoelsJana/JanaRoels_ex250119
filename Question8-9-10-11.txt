@@ -1,0 +1,36 @@
+mongoimport --db test --collection bioinf_mongo_examen --file bioinf_mongo_examen.json
+mongo
+show databases
+use test
+show tables;
+
+
+
+QUESTION 8 
+
+db.bioinf_mongo_examen.find({method_of_admission:{$in:["TABLET;BUCCAL","TABLET;SUBLINGUAL"]}})
+{ "_id" : ObjectId("588878f14ffaac26108556a6"), "drug" : "METUBINE IODIDE", "company" : "Amneal Pharmaceuticals LLC", "method_of_admission" : [ "TABLET;BUCCAL" ], "percentage_of_side_effects" : 6.5 }
+{ "_id" : ObjectId("588878f14ffaac26108556a7"), "drug" : "REDISOL", "company" : "Amneal Pharmaceuticals LLC", "method_of_admission" : [ "TABLET;BUCCAL", "SOLUTION, ELIXIR;ORAL" ], "percentage_of_side_effects" : 10 }
+{ "_id" : ObjectId("588878f14ffaac2610855c6c"), "drug" : "SPECTAZOLE", "company" : "Atley Pharmaceuticals, Inc.", "method_of_admission" : [ "TABLET;SUBLINGUAL" ], "percentage_of_side_effects" : 5.5 }
+
+3 drugs are taken in that way
+
+
+QUESTION 9
+
+db.bioinf_mongo_examen.find({percentage_of_side_effects:{$gt:8}},{drug:1}).count()
+399
+
+
+QUESTION 10
+
+db.bioinf_mongo_examen.find({percentage_of_side_effects:{$gt:8}})
+db.bioinf_mongo_examen.aggregate([
+    {$group:{company:"$company", avg_side_effect:{$avg:"$percentage_of_side_effects"}}}
+    ])
+    
+    
+QUESTION 11
+
+
+

@@ -1,0 +1,23 @@
+UNF: (gathering all information that is in the database)
+lab(personnelno, name, dateofbirth, lab(code, labname), research(code,description,supervisor)
+
+1NF: (elimination of repeating groups; lab and research)
+lab(personnelno, name, dateofbirth, labcode, labname, researchcode, research_description, research_supervisor)
+     candidate keys: personnelno + labcode + researchcode
+
+2NF: (every non key attributes should be fully dependend on the whole key; this is not the case)
+personnel(personnelno, name, dateofbirth, labcode, researchcode)
+     candidate keys: personnelno
+lab(labcode, labname)     
+     candidate keys: labcode
+research(researchcode, description, supervisor)
+     candidate keys: researchcode
+
+3NF: (there may be no transitive dependencies)
+     The data is already in 3NF, so 3NF equals 2NF
+personnel(personnelno, name, dateofbirth, labcode, researchcode)
+     candidate keys: personnelno
+lab(labcode, labname)     
+     candidate keys: labcode
+research(researchcode, description, supervisor)
+     candidate keys: researchcode
